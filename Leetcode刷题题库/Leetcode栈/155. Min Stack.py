@@ -34,7 +34,8 @@ class MinStack:
 
 if __name__ == '__main__':
     ["MinStack", "push", "push", "push", "getMin", "pop", "top", "getMin"]
-    x = [[], [-2], [0], [-3], [], [], [], []]
+    [[], [-2], [0], [-3], [], [], [], []]
+    x = [-2, 0, -3]
     obj = MinStack()
     obj.push(x)
     obj.pop()
