@@ -7,7 +7,7 @@
 
 class Solution:
     def removeElement(self, nums, val):
-        for x in nums[:]:
+        for x in nums[:]:  # [:]表示从集合的头到尾
             if x == val:
                 nums.remove(val)
         return len(nums)
