@@ -14,7 +14,7 @@ class My_List(object):
         self.first_node = x
         self.last_node = x
 
-    def add(self,x):
+    def add(self, x):
         self.last_node.next = x
         self.last_node = self.last_node.next
 
