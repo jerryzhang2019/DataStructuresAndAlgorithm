@@ -8,9 +8,8 @@
 #     def deleteNode(self, node):
 #         node.val = node.next.val  # 意思是直接赋值替换，把节点后面的值直接覆盖掉当前节点的值
 #         node.next = node.next.next  # 当前节点的下一个的指针指向下下一个节点，跳过node.next节点，指向下一个节点
-# 我使用作为元素给出的ListNode创建一个列表：
+# 我使用作为元素给出的ListNode创建一个列表来验证两者之间的区别：
 class My_List(object):
-
     def __init__(self, x):
         self.first_node = x
         self.last_node = x
@@ -26,7 +25,7 @@ class My_List(object):
             print('%s-%s' % (index, temp.val))
             temp = temp.next
 
-class ListNode:  # 定义类
+class ListNode:  # 定义节点类
     def __init__(self, x):
         self.val = x
         self.next = None
@@ -34,16 +33,20 @@ class ListNode:  # 定义类
 my_list = My_List(ListNode('start'))  # 实例化
 dd = {}  # use this dict to keep reference to each element
 for i in range(5):
-    dd[i] = ListNode('item-%s' %i)
+    dd[i] = ListNode('item-%s' % i)
     my_list.add(dd[i])
+print('The old linked list is:')
 my_list.print()  # 打印链表
+
 # 测试案例#1:删除节点3
 node = dd[3]  # suppose I want to delete this node
 node = node.next  # this is the first thought I took
+print('The new linked list is below:')
 my_list.print()
 
 # 测试案例# 2：删除节点3
 node = dd[3]
-node.val = node.next.val
-node.next = node.next.next
+node.val = node.next.val  # 意思是直接赋值替换，把节点后面的值直接覆盖掉当前节点的值
+node.next = node.next.next  # 当前节点的下一个的指针指向下下一个节点，跳过node.next节点，指向下一个节点
+print('The new linked list is below:')
 my_list.print()
