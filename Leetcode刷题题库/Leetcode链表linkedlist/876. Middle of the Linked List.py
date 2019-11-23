@@ -8,3 +8,12 @@
 # 范例2：输入：[1,2,3,4,5,6] 输出：此列表中的节点4（序列化：[4,5,6]）
 # 由于列表具有两个中间节点，其值分别为3和4，因此我们返回第二个。
 # 注意：给定列表中的节点数将在1 和之间100。
+
+class Solution:
+    def midNode(self, head):
+        slow = fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
