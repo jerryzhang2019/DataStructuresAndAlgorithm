@@ -25,5 +25,5 @@ class Solution:
             return True  # 两个树相等
         if p is not None and q is not None:  # 如果树p和q数都不为空，则判断节点值是否相等
             return p.val == q.val and self.isSomeTree(p.left, q.left) and self.isSomeTree(p.right, q.right)
-# 数p和数q的节点值相等，同时p树的左子孩子和q树的左子孩子相等,同时p树的右孩子和q树的右孩子相等
+# 数p和数q的节点值相等，同时p树的左子孩子和q树的左子孩子相等,同时p树的右孩子和q树的右孩子相等，采用递归的方法
         return False  # 返回 False????为什么？？？？
