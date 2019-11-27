@@ -8,10 +8,13 @@
 class Solution:
     def isUnivalTree(self, root):
         def rec(root, val):  # 定义一个构造函数rec遍历整个二叉树
-            if not root:  # 如果根节点不存在，为空，则属于单一值
+
+            if not root:  # 特列：如果根节点不存在，为空，则属于单一值
                 return True
+
             if root.val == val:  # 如果根节点值和给定值相等，遍历整个树都相等，可以判断为单一值的树
                 return rec(root.left, val) and rec(root.right, val)  # 递归整个左子树和右子树
             else:
                 return False
-        return rec(root, root.val)  # 调用rec函数判断root值是否是和root.val值一直相等
+
+        return rec(root, root.val)  # 实例化：调用rec函数判断root值是否是和root.val值一直相等
