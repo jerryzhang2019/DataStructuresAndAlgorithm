@@ -8,3 +8,24 @@
 #    -3   9
 #    /   /
 #  -10  5
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def sortedArrayToBST(self, nums):
+        if not nums:  # 边界情况判断
+            return None
+
+        mid = len(nums)//2  # 取出中间位置
+        root = TreeNode(nums[mid])  # 确定根节点，数组中间位置的值即为根节点
+
+        root.left = self.sortedArrayToBST(nums[:mid])  # 采用递归的方法确定左孩子
+        root.right = self.sortedArrayToBST(nums[mid+1:])  # 递归确定右孩子
+
+        return root  # 循环结束后返回根节点
+
+
+
