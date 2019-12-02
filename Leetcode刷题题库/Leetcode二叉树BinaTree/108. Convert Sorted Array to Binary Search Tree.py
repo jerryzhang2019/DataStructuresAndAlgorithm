@@ -25,7 +25,7 @@ class Solution:
         root.left = self.sortedArrayToBST(nums[:mid])  # 采用递归的方法确定左孩子
         root.right = self.sortedArrayToBST(nums[mid+1:])  # 递归确定右孩子
 
-        return root  # 循环结束后返回根节点
+        return root  # 循环结束后返回节点，即为整个树，因为每个循环都会以root.left为根节点为root.
 
 
 
