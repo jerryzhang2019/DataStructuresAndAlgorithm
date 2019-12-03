@@ -40,7 +40,7 @@ class Solution:  # 套用
             prev.next = None  # while循环结束的条件必然时prev的下一个节点为空，prev指针移动到中间位置
             return slow  # 循环全部结束后，指针slow遍历了半个链表，停止在中间位置mid
 
-        mid = findMid(head)  # 找到链表的中间位置索引
+        mid = findMid(head)  # 找到链表的中间位置索引,调用函数
 
         root = self.TreeNode(mid.val)  # 找到根节点
         # 为什么适用切片法？是因为链表的是按照升序排列的，同时BST的性质又是左孩子都小于根节点，右孩子都大于根节点（性质）
