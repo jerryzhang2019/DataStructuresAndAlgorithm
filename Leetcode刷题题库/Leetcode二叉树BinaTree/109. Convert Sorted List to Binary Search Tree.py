@@ -28,8 +28,7 @@ class Solution:  # 套用
         if not head.next:  # 边界案例
             return TreeNode(head.val)
 
-        def findMid(self, head):  # 特定的功能函数
-
+        def findMid(self, head):  # 子函数-特定的功能函数
             prev = None  # 提前定义3个指针变量，prev是一个虚节点
             slow = fast = head  # 快慢指针都从头节点开始移动
 
