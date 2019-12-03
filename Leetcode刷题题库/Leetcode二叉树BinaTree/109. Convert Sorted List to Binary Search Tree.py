@@ -21,6 +21,35 @@ class TreeNode:
         self.left = None
         self.right = None
 
+class Solution:  # 套用
+    def sortedListToBST(self, head:ListNode) -> TreeNode:
+        if not head:  # 边界案例
+            return None
+        if not head.next:  # 边界案例
+            return TreeNode(head.val)
+
+        def findMid(self, head):  # 特定的功能函数
+
+            prev = None  # 提前定义3个指针变量，prev是一个虚节点
+            slow = fast = head  # 快慢指针都从头节点开始移动
+
+            while fast and fast.next: # 当这两个节点都存在时继续循环，否则跳出循环
+                prev = slow  # prev一次循环跳一格
+                slow = slow.next  # 慢指针slow一次跳一格
+                fast = fast.next.next  # 快指针fast一次跳2格
+            prev.next = None  # while循环结束的条件必然时prev的下一个节点为空，prev指针移动到中间位置
+            return slow  # 循环全部结束后，指针slow遍历了半个链表，停止在中间位置mid
+
+        mid = findMid(head)  # 找到链表的中间位置索引
+
+        root = self.TreeNode(mid.val)  # 找到根节点
+        # 为什么适用切片法？是因为链表的是按照升序排列的，同时BST的性质又是左孩子都小于根节点，右孩子都大于根节点（性质）
+        root.left = self.sortedListToBST(head)  # 左孩子，head是第一个左孩子，切片法，从head到mid-1都是左孩子
+        root.right = self.sortedListToBST(mid.next)  # 右孩子，从mid.next到结尾都是右孩子
+        return root  # 每个循环返回一个根节点，所有循环运行完，可以返回整个二叉树的所有节点，既是一个完整的二叉树
+
+
+
 
 # class Solution:  # 方案2
 #     def sortedListToBST(self, head: ListNode) -> TreeNode:
