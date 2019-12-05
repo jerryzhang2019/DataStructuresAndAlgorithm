@@ -10,11 +10,11 @@
 class Solution:
     def isValid(self, s):
         stack = []  # 定义一个堆栈存储括号
-        pairs = {'(':')','[':']','{':'}'}  # 定义一个字典其中包含所有的括号
+        match = {'(':')','[':']','{':'}'}  # 定义一个字典其中包含所有的括号
 
         for char in s: # 开启循环查找
-            if char in pairs: 
-                stack.append(pairs[char])  # 把循环到的符号依次压栈
+            if char in match: 
+                stack.append(match[char])  # 把循环到的符号依次压栈
             else:
                 if len(stack) == 0 or stack.pop() != char:  # 错误条件有两种：1-堆栈长度为零，2.出栈的符号和char中的符号不匹配
                     return False  # 返回错误意思是符号不匹配
