@@ -13,7 +13,7 @@ class Solution:
         match = {'(':')','[':']','{':'}'}  # 定义一个字典其中包含所有的括号
 
         for char in s: # 开启循环查找
-            if char in match: 
+            if char in match:  # 判断输入的符号在字典match中
                 stack.append(match[char])  # 把循环到的符号依次压栈
             else:
                 if len(stack) == 0 or stack.pop() != char:  # 错误条件有两种：1-堆栈长度为零，2.出栈的符号和char中的符号不匹配
